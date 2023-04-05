@@ -1,0 +1,38 @@
+public E removeElement(E element) {
+        int index = getElementHash(element);
+        Node node = nodes[index];
+        if (node == null) {
+            return null;
+        }
+        nodes[index] = null;
+        E data = (E) node.data;
+        Node l = getElemInArray(node.left);
+        Node r = getElemInArray(node.right);
+        if (l != null) {
+            l.parent = null;
+        }
+        if (r != null) {
+            r.parent = null;
+        }
+        l = connectNodes(l, r);
+        if (node.parent == null) {
+            this.root = l;
+            if (this.root != null) {
+                this.root.parent = null;
+            }
+            return data;
+        }
+        int p = getElementHash((E) node.parent.data);
+        if (nodes[p] != null) {//здесь сравниваются ИМЕННО значение указателей, 
+                               //интересует равенство адресов памяти, а не значений
+            if (nodes[p].left == node) {
+                nodes[p].left = null;
+            }
+            if (nodes[p].right == node) {
+                nodes[p].right = null;
+            }
+        }
+        connectNodes(nodes[p], l);
+        return data;
+
+    }
