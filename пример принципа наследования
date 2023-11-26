@@ -1,0 +1,49 @@
+В этом примере класс Vehicle является базовым классом для классов Car и Bicycle. Классы Car и Bicycle наследуют все общие свойства и методы класса Vehicle, такие как brand и year. При этом классы Car и Bicycle могут расширять функциональность базового класса, добавляя собственные уникальные свойства, такие как numberOfSeats для класса Car и numberOfGears для класса Bicycle.
+
+Таким образом, принцип наследования позволяет классам наследовать свойства и методы от других классов, с целью повторного использования кода и создания иерархии классов.
+// Базовый класс Vehicle
+public class Vehicle {
+private String brand;
+private int year;
+
+public Vehicle(String brand, int year) {
+this.brand = brand;
+this.year = year;
+}
+
+public String getBrand() {
+return brand;
+}
+
+public int getYear() {
+return year;
+}
+}
+
+// Подкласс Car, наследующийся от Vehicle
+public class Car extends Vehicle {
+private int numberOfSeats;
+
+public Car(String brand, int year, int numberOfSeats) {
+super(brand, year); // Вызов конструктора базового класса
+this.numberOfSeats = numberOfSeats;
+}
+
+public int getNumberOfSeats() {
+return numberOfSeats;
+}
+}
+
+// Подкласс Bicycle, наследующийся от Vehicle
+public class Bicycle extends Vehicle {
+private int numberOfGears;
+
+public Bicycle(String brand, int year, int numberOfGears) {
+super(brand, year); // Вызов конструктора базового класса
+this.numberOfGears = numberOfGears;
+}
+
+public int getNumberOfGears() {
+return numberOfGears;
+}
+}
