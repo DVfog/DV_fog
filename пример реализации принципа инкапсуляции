@@ -1,0 +1,18 @@
+Лабораторная работа №1
+public class Circle {
+private double radius;
+
+public void setRadius(double radius) {
+if (radius > 0) {
+this.radius = radius;
+} else {
+System.out.println("Радиус должен быть больше нуля!");
+}
+}
+
+public double getRadius() {
+return radius;
+}
+}
+Пример использования инкапсуляции для защиты данных от неправильных значений:
+В этом примере метод setRadius проверяет, что значение радиуса больше нуля перед его установкой, чтобы предотвратить неправильные значения.
