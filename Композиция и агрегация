@@ -1,0 +1,56 @@
+Лабораторная работа №4
+// Пример композиции
+public class Address {
+private String city;
+private String street;
+
+public Address(String city, String street) {
+this.city = city;
+this.street = street;
+}
+
+// Геттеры и сеттеры
+}
+
+public class Person {
+private String name;
+private Address address; // Композиция: Person "содержит" Address
+
+public Person(String name, Address address) {
+this.name = name;
+this.address = address;
+}
+
+// Геттеры и сеттеры
+}
+
+В приведенном примере класс Person содержит экземпляр класса Address, что является примером композиции. Объект Address существует только в контексте объекта Person. Если объект Person будет удален, то и объект Address также будет удален.
+
+Агрегация:
+
+java
+
+// Пример агрегации
+public class Department {
+private String name;
+
+// Массив объектов класса Employee
+private Employee[] employees;
+
+public Department(String name, Employee[] employees) {
+this.name = name;
+this.employees = employees;
+}
+
+// Геттеры и сеттеры
+}
+
+public class Employee {
+private String name;
+
+public Employee(String name) {
+this.name = name;
+}
+
+// Геттеры и сеттеры
+}
